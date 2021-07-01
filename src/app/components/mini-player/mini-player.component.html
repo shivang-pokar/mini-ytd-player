@@ -1,0 +1,11 @@
+<div>
+    <div class="video-section position-relative">
+        <video muted #smallVideo controls (timeupdate)="minCurrentTime($event)" class="video-section" [src]="source"></video>
+        <div class="overlay position-absolute">
+            <button class="position-absolute expand-button" mat-icon-button
+                aria-label="Example icon button with a vertical three dot icon" (click)="stopMini()">
+                <mat-icon>aspect_ratio</mat-icon>
+            </button>
+        </div>
+    </div>
+</div>

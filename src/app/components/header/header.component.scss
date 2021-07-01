@@ -1,0 +1,26 @@
+header {
+    height: 65px;
+    background: var(--ng-white);
+    padding: 0 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    img {
+        max-height: 100%;
+        width: 75px;
+        display: block;
+    }
+
+    .secondery-header {
+        position: fixed;
+        left: 0;
+        top: 65px;
+        width: 240px;
+        background: var(--ng-white);
+        bottom: 0;
+        cdk-virtual-scroll-viewport {
+            height: 100%;
+            .item{
+                line-height: 30px;
+            }
+        }
+    }
+}

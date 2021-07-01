@@ -1,0 +1,32 @@
+<app-header></app-header>
+<div class="padding-24">
+    <div class="d-flex justify-content-center video-player">
+        <div class="left-section">
+            <div class="video-part">
+                <div class="position-relative video-body" [class.notice]="sourceLink">
+                    <div class="no-video-text position-absolute w-100 h-100 d-flex align-items-center justify-content-center"
+                        *ngIf="sourceLink">
+                        <p>Vidoe Playgin in mini player</p>
+                    </div>
+                    <video muted #myVideo (timeupdate)="setCurrentTime($event)" controls class="video-section"
+                        [class.hidden]="sourceLink" id="bigVideo" src="../../../assets/video.mp4"></video>
+                </div>
+
+                <div class="featured_video bottom-icons justify-content-end w-100 d-flex">
+                    <button mat-icon-button aria-label="Example icon button with a vertical three dot icon"
+                        (click)="openMiniPlayer()">
+                        <mat-icon>featured_video</mat-icon>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+        <div class="right-section">
+
+        </div>
+    </div>
+</div>
+
+
+<mini-player class="no-visable" (playBigVideo)="playBigVideo($event)" [currentTime]="currentTime" [source]="sourceLink" [class.show]="minplayer == true">
+</mini-player>

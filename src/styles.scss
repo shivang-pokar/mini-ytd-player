@@ -1,1 +1,80 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --ng-white: #fff;
+}
+
+html,
+body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background: #f9f9f9;
+}
+
+.mr-2 {
+    margin-right: 1rem !important;
+}
+
+@import "~@angular/material/theming";
+
+@include mat-core();
+
+$sg-app-primary: mat-palette($mat-indigo);
+$sg-app-accent: mat-palette($mat-pink, A200, A100, A400);
+
+$sg-app-theme: mat-light-theme($sg-app-primary, $sg-app-accent);
+
+@function my-mat-light-theme-foreground($color) {
+    @return (
+        base: $color,
+        divider: rgba(0, 0, 0, 0.1),
+        dividers: rgba(0, 0, 0, 0.1),
+        disabled: rgba($color, 0.38),
+        disabled-button: rgba($color, 0.38),
+        disabled-text: rgba($color, 0.38),
+        hint-text: rgba($color, 0.38),
+        secondary-text: rgba($color, 0.54),
+        icon: #606060,
+        icons: #606060,
+        text: #030303,
+        slider-off: rgba($color, 0.26),
+        slider-off-active: rgba($color, 0.38),
+        slider-min: rgba($color, 0.38)
+    );
+}
+
+$white-foreground: my-mat-light-theme-foreground(#030303);
+$my-app-theme-custom: map-merge(
+    $sg-app-theme,
+    (
+        foreground: $white-foreground,
+    )
+);
+
+@include angular-material-theme($my-app-theme-custom);
+
+/* For the non-Angular Material items */
+body {
+    color: #030303;
+    font-size: 14px;
+}
+.mat-list-base .mat-list-item .mat-list-text > *,
+.mat-list-base .mat-list-option .mat-list-text > * {
+    font-size: 14px !important;
+}
+
+mat-icon {
+    color: #606060;
+}
+
+mat-selection-list {
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.mat-list-base .mat-list-item.mat-list-item-with-avatar,
+.mat-list-base .mat-list-option.mat-list-item-with-avatar {
+    height: 40px !important;
+}
